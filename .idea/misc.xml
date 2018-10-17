@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/learn05" />
+    <file type="web" url="file://$PROJECT_DIR$/learn06" />
+    <file type="web" url="file://$PROJECT_DIR$/learn08" />
+    <file type="web" url="file://$PROJECT_DIR$/learn09" />
+    <file type="web" url="file://$PROJECT_DIR$/learn10" />
+    <file type="web" url="file://$PROJECT_DIR$/learn11" />
+    <file type="web" url="file://$PROJECT_DIR$/learn12" />
+    <file type="web" url="file://$PROJECT_DIR$/learn5" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+</project>

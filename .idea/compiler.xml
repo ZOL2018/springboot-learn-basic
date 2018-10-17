@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="learn05" target="1.8" />
+      <module name="learn06" target="1.8" />
+      <module name="learn07" target="1.8" />
+      <module name="learn08" target="1.8" />
+      <module name="learn09" target="1.8" />
+      <module name="learn10" target="1.8" />
+      <module name="learn11" target="1.8" />
+      <module name="learn12" target="1.8" />
+      <module name="learn5" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

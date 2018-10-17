@@ -1,0 +1,5 @@
+//请尝试 如果直接启动不了 请尝试
+>> maven project
+>> plugins
+>> spring-boot
+>> spring-boot:run 启动
