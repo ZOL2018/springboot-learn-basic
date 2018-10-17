@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    # yml 需要使用 '' 来包含一些参数
+    username: 'rmot'
+    password: '0406'
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 初始化数量
+    initialSize: 0
+    # 最大活跃数量
+    maxActive: 20
+    # 连接超时时间
+    maxWait: 60000
+    # PSCache 指定连接大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 其他配置
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 25200000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 监控统计拦截的filters 可监控统计sql 防火墙wall
+    filters: stat,wall,log4j
+    # 最新配置需要
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+    connectionProperties: true
+    druid.stat.mergeSql: true
+    druid.stat.slowSqlMillis: 5000
+    useGlobalDataSourceStat: true
+  jpa:
+    database: mysql
+    show-sql: true
+    format_sql: true
+    hibernate:
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
