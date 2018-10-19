@@ -3,6 +3,8 @@ package com.basic.learn13.controller;
 import com.basic.learn13.entity.UserEntity;
 import com.basic.learn13.jpa.UserJPA;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,9 +43,23 @@ public class UserController {
         return "success";
     }
 
-
-    // ... 自定义BaseRepository -- 13
-
-
-
+    /**
+     * 分页功能
+     * 默认分页 不可修改 但会返回设置的页码数
+     * @param page
+     * @return
+     */
+    @RequestMapping(value = "/pages")
+    public List<UserEntity> pages(int page){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setSize(5);
+        userEntity.setPage(page);
+        Sort.Direction sortDirection = Sort.Direction.ASC.toString().equalsIgnoreCase(userEntity.getSort())?Sort.Direction.ASC:Sort.Direction.DESC;
+        //设置排序对象
+        Sort sort = new Sort(sortDirection,userEntity.getSelectId());
+        //设置分页对象
+        PageRequest pageRequest = new PageRequest(userEntity.getPage() - 1,userEntity.getSize(),sort);
+        //返回分页数据
+        return userJPA.findAll(pageRequest).getContent();
+    }
 }

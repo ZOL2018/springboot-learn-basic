@@ -1,10 +1,13 @@
 package com.basic.learn13.entity;
 
+import com.basic.learn13.base.BaseEntity;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "user")
-public class UserEntity {
+public class UserEntity extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id")
