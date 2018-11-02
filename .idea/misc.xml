@@ -10,9 +10,18 @@
     <file type="web" url="file://$PROJECT_DIR$/learn12" />
     <file type="web" url="file://$PROJECT_DIR$/learn13" />
     <file type="web" url="file://$PROJECT_DIR$/learn14" />
+    <file type="web" url="file://$PROJECT_DIR$/learn15" />
+    <file type="web" url="file://$PROJECT_DIR$/learn16" />
     <file type="web" url="file://$PROJECT_DIR$/learn5" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/learn16/pom.xml" />
+      </list>
+    </option>
   </component>
 </project>

@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="learn16" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +20,8 @@
       <module name="learn12" target="1.8" />
       <module name="learn13" target="1.8" />
       <module name="learn14" target="1.8" />
+      <module name="learn15" target="1.8" />
+      <module name="learn16" target="1.8" />
       <module name="learn5" target="1.8" />
     </bytecodeTargetLevel>
   </component>
