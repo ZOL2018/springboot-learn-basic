@@ -1,26 +1,68 @@
 package com.basic.learn17.entity;
 
-import com.basic.learn17.base.BaseEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Table(name = "user")
-public class UserEntity extends BaseEntity implements Serializable {
+@Table(name = "users")
+public class UserEntity implements Serializable,UserDetails
+{
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "u_id")
     private Long id;
+    @Column(name = "u_username")
+    private String username;
+    @Column(name = "u_password")
+    private String password;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = {
+                    @JoinColumn(name = "ur_user_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "ur_role_id")
+            }
+    )
+    private List<RoleEntity> roles;
 
-    @Column(name = "name")
-    private String name;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> auths = new ArrayList<>();
+        List<RoleEntity> roles = getRoles();
+        for(RoleEntity role : roles)
+        {
+            auths.add(new SimpleGrantedAuthority(role.getFlag()));
+        }
+        return auths;
+    }
 
-    @Column(name = "age")
-    private int age;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-    @Column(name = "address")
-    private String address;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
     public Long getId() {
         return id;
@@ -30,27 +72,29 @@ public class UserEntity extends BaseEntity implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public int getAge() {
-        return age;
+    @Override
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getAddress() {
-        return address;
+    public List<RoleEntity> getRoles() {
+        return roles;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
     }
 }
